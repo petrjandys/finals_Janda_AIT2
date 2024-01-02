@@ -1,0 +1,32 @@
+﻿@page
+@model finals_Janda_AIT1.Pages.CreditsModel
+@{
+    ViewData["Title"] = "Credits";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form method="post">
+    <div>
+        <label asp-for="Credit.Value"></label>
+        <input asp-for="Credit.Value" type="number" min="1" max="5" value="1"/>
+    </div>
+    <div>
+        <label asp-for="Credit.Success"></label>
+        <input asp-for="Credit.Success" />
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (!ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        Error while adding the item to DB
+    </div>
+}

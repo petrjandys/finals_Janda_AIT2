@@ -1,0 +1,48 @@
+﻿@page
+@model finals_Janda_AIT1.Pages.DatabaseModel
+@{
+    ViewData["Title"] = "Database Content";
+}
+<style>    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    button{
+        background-color:grey;
+    }
+</style>
+<h1>Database Content</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Create Time</th>
+            <th>Value</th>
+            <th>Success</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var credit in Model.Credits)
+        {
+                <tr>
+                    <td>@credit.Id</td>
+                    <td>@credit.Created</td>
+                    <td>@credit.Value</td>
+                    <td>@credit.Success</td>
+                </tr>
+        }
+    </tbody>
+</table>
+<a href="/Credits">Add new item</a>
